@@ -9,6 +9,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Where;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import br.com.ifpe.oxefood.util.entity.EntidadeAuditavel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,7 +29,8 @@ import lombok.Setter;
 public class Cliente extends EntidadeAuditavel  {
     @Column
    private String nome;
-
+   
+   @JsonFormat(pattern = "dd/MM/yyyy")
     @Column
    private LocalDate dataNascimento;
 
