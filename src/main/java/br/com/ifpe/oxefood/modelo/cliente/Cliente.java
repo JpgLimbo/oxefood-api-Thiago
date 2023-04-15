@@ -1,5 +1,6 @@
 package br.com.ifpe.oxefood.modelo.cliente;
 
+
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -26,12 +27,16 @@ import lombok.Setter;
 public class Cliente extends EntidadeAuditavel  {
     @Column
    private String nome;
+
     @Column
    private LocalDate dataNascimento;
+
     @Column
    private String cpf;
+
     @Column
    private String foneCelular;
+   
     @Column
    private String foneFixo;
 
