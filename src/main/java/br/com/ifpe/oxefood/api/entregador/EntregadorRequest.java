@@ -57,6 +57,7 @@ public class EntregadorRequest {
                .rg(rg)
                .foneCelular(foneCelular)
                .foneFixo(foneFixo)
+               .dataNascimento(dataNascimento)
                .qtdEntregasRealizadas(qtdEntregasRealizadas)
                .valorFrete(valorFrete)
                .enderecoRua(enderecoRua)
