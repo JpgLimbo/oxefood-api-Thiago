@@ -10,8 +10,6 @@ import org.hibernate.annotations.Where;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import br.com.ifpe.oxefood.util.entity.EntidadeAuditavel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,7 +36,8 @@ public class Entregador extends EntidadeAuditavel  {
    private String rg;
 
    @JsonFormat(pattern = "dd/MM/yyyy")
-    @Column
+    
+   @Column
    private LocalDate dataNascimento;
 
     @Column
@@ -65,6 +64,7 @@ public class Entregador extends EntidadeAuditavel  {
     @Column
    private String enderecoCidade;
     
+    @Column
    private String enderecoCep;
    
     @Column
