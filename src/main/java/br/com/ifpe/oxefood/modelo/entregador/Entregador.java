@@ -26,6 +26,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Entregador extends EntidadeAuditavel  {
+    
     @Column
    private String nome;
 
@@ -34,10 +35,9 @@ public class Entregador extends EntidadeAuditavel  {
 
     @Column
    private String rg;
-
-   @JsonFormat(pattern = "dd/MM/yyyy")
-    
+   
    @Column
+   @JsonFormat(pattern = "dd/MM/yyyy")
    private LocalDate dataNascimento;
 
     @Column
@@ -71,9 +71,9 @@ public class Entregador extends EntidadeAuditavel  {
     private String enderecoUf;
 
     @Column
-   private String enderecoCompleto;
+    private String enderecoComplemento;
 
     @Column
-   private Boolean ativo;
+    private Boolean ativo;
 
 }

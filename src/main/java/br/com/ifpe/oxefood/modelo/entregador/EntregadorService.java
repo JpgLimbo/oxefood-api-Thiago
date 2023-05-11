@@ -20,7 +20,7 @@ public class EntregadorService extends GenericService {
 
        super.preencherCamposAuditoria(entregador);
        return repository.save(entregador);
-   }
+    }
    public List<Entregador> listarTodos() {
   
     return repository.findAll();

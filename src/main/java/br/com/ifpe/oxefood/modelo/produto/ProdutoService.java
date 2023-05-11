@@ -20,7 +20,7 @@ public class ProdutoService extends GenericService {
 
        super.preencherCamposAuditoria(produto);
        return repository.save(produto);
-   }
+    }
    public List<Produto> listarTodos() {
   
     return repository.findAll();
