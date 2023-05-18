@@ -17,13 +17,13 @@ public class MaterialRequest {
 
     private String titulo;
     
-    private double valor;
+    private Double valor;
     
     private String responsavel;
     
     private String localizacao;
     
-    private double peso;
+    private Double peso;
     
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataAquisicao;
