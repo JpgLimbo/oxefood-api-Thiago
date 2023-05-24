@@ -21,6 +21,32 @@ public class EntregadorService extends GenericService {
        super.preencherCamposAuditoria(entregador);
        return repository.save(entregador);
     }
+
+    @Transactional
+   public void update(Long id, Entregador entregadorAlterado) {
+
+      Entregador entregador = repository.findById(id).get();
+      entregador.setNome(entregadorAlterado.getNome());
+      entregador.setCpf(entregadorAlterado.getCpf());
+      entregador.setRg(entregadorAlterado.getRg());
+      entregador.setDataNascimento(entregadorAlterado.getDataNascimento());
+      entregador.setFoneCelular(entregadorAlterado.getFoneCelular());
+      entregador.setFoneFixo(entregadorAlterado.getFoneFixo());
+      entregador.setQtdEntregasRealizadas(entregadorAlterado.getQtdEntregasRealizadas());
+      entregador.setValorFrete(entregadorAlterado.getValorFrete());
+      entregador.setEnderecoNumero(entregadorAlterado.getEnderecoNumero());
+      entregador.setEnderecoRua(entregadorAlterado.getEnderecoRua());
+      entregador.setEnderecoBairro(entregadorAlterado.getEnderecoBairro());
+      entregador.setEnderecoCidade(entregadorAlterado.getEnderecoCidade());
+      entregador.setEnderecoCep(entregadorAlterado.getEnderecoCep());
+      entregador.setEnderecoUf(entregadorAlterado.getEnderecoUf());
+      entregador.setEnderecoComplemento(entregadorAlterado.getEnderecoComplemento());
+      entregador.setAtivo(entregadorAlterado.getAtivo());
+	    
+      super.preencherCamposAuditoria(entregador);
+      repository.save(entregador);
+  }
+
    public List<Entregador> listarTodos() {
   
     return repository.findAll();
