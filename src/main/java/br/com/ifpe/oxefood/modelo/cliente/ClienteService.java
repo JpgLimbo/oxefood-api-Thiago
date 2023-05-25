@@ -47,4 +47,14 @@ public Cliente obterPorID(Long id) {
     return repository.findById(id).get();
 }
 
+@Transactional
+public void delete(Long id) {
+
+    Cliente cliente = repository.findById(id).get();
+    cliente.setHabilitado(Boolean.FALSE);
+    super.preencherCamposAuditoria(cliente);
+
+    repository.save(cliente);
+}
+
 }
