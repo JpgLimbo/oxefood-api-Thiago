@@ -44,6 +44,7 @@ public class MaterialService extends GenericService {
 
     return repository.findById(id).get();
     }
+    @Transactional
     public void delete(Long id) {
 
         Material material = repository.findById(id).get();
