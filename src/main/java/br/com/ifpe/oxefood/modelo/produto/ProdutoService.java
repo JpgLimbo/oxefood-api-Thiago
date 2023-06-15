@@ -12,17 +12,38 @@ import br.com.ifpe.oxefood.util.entity.GenericService;
 @Service
 public class ProdutoService extends GenericService {
 
-   @Autowired
+      @Autowired
    private ProdutoRepository repository;
 
-   @Transactional
+      @Transactional
    public Produto save(Produto produto) {
 
+      super.preencherCamposAuditoria(produto);
+      return repository.save(produto);
+   }
+    
+   public List<Produto> listarTodos() {
+  
+      return repository.findAll();
+   }
+
+   public Produto obterPorID(Long id) {
+
+    return repository.findById(id).get();
+   }
+
+      @Transactional
+    public void delete(Long id) {
+
+       Produto produto = repository.findById(id).get();
+       produto.setHabilitado(Boolean.FALSE);
        super.preencherCamposAuditoria(produto);
-       return repository.save(produto);
-    }
-    @Transactional
-   public void update(Long id, Produto produtoAlterado) {
+
+       repository.save(produto);
+   }
+
+   @Transactional
+      public void update(Long id, Produto produtoAlterado) {
 
       Produto produto = repository.findById(id).get();
       produto.setCodigo(produtoAlterado.getCodigo());
@@ -35,24 +56,4 @@ public class ProdutoService extends GenericService {
       super.preencherCamposAuditoria(produto);
       repository.save(produto);
   }
-   public List<Produto> listarTodos() {
-  
-    return repository.findAll();
-    }
-
-    public Produto obterPorID(Long id) {
-
-    return repository.findById(id).get();
-    }
-
-    @Transactional
-    public void delete(Long id) {
-
-       Produto produto = repository.findById(id).get();
-       produto.setHabilitado(Boolean.FALSE);
-       super.preencherCamposAuditoria(produto);
-
-       repository.save(produto);
-   }
-
 }

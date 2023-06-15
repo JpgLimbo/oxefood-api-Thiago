@@ -1,0 +1,22 @@
+package br.com.ifpe.oxefood.api.Produto;
+
+import br.com.ifpe.oxefood.modelo.produto.CategoriaProduto;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class CategoriaProdutoRequest {
+
+    private String descricao;
+
+    public CategoriaProduto build() {
+
+        return CategoriaProduto.builder()
+            .descricao(descricao)
+            .build();
+    }
+    
+}
