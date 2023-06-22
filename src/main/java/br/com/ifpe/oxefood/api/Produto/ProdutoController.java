@@ -66,6 +66,7 @@ public class ProdutoController extends GenericController {
         return ResponseEntity.ok().build();
     }
     
+   
    @DeleteMapping("/{id}")
    public ResponseEntity<Void> delete(@PathVariable Long id) {
 

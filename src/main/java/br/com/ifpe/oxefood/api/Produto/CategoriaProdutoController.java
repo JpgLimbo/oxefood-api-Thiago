@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.ifpe.oxefood.modelo.produto.CategoriaProduto;
 import br.com.ifpe.oxefood.modelo.produto.CategoriaProdutoService;
 import br.com.ifpe.oxefood.util.entity.GenericController;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/api/categoriaproduto")
@@ -27,6 +28,7 @@ public class CategoriaProdutoController extends GenericController {
     @Autowired
     private CategoriaProdutoService categoriaProdutoService;
 
+    @ApiOperation(value = "Serviço responsável por salvar uma categoria produto no sistema.")
     @PostMapping
     public ResponseEntity<CategoriaProduto> save(@RequestBody @Valid CategoriaProdutoRequest request) {
 
@@ -35,18 +37,21 @@ public class CategoriaProdutoController extends GenericController {
         return new ResponseEntity<CategoriaProduto>(categoriaProduto, HttpStatus.CREATED);
     }
 
+    @ApiOperation(value = "Serviço responsável por deletar uma categoria produto no sistema.")
     @GetMapping
     public List<CategoriaProduto> listarTodos() {
   
        return categoriaProdutoService.listarTodos();
     }
 
+    @ApiOperation(value = "Serviço responsável por consultar uma categoria produto no sistema.")
     @GetMapping("/{id}")
     public CategoriaProduto obterPorID(@PathVariable Long id) {
 
        return categoriaProdutoService.obterPorID(id);
     }
 
+    @ApiOperation(value = "Serviço responsável por atualizar uma categoria produto no sistema.")
     @PutMapping("/{id}")
     public ResponseEntity<CategoriaProduto> update(@PathVariable("id") Long id, @RequestBody CategoriaProdutoRequest request) {
 
@@ -54,6 +59,7 @@ public class CategoriaProdutoController extends GenericController {
         return ResponseEntity.ok().build();
     }
 
+    @ApiOperation(value = "Serviço responsável por deletar uma categoria produto no sistema.")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
 

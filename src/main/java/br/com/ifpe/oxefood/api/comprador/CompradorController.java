@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.ifpe.oxefood.modelo.comprador.Comprador;
 import br.com.ifpe.oxefood.modelo.comprador.CompradorService;
 import br.com.ifpe.oxefood.util.entity.GenericController;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/api/comprador")
@@ -27,24 +28,29 @@ public class CompradorController extends GenericController {
    @Autowired
    private CompradorService compradorService;
 
+   @ApiOperation(value = "Serviço responsável por criar um comprador no sistema.")
    @PostMapping
    public ResponseEntity<Comprador> save(@RequestBody @Valid CompradorRequest request) {
 
        Comprador comprador = compradorService.save(request.build());
        return new ResponseEntity<Comprador>(comprador, HttpStatus.CREATED);
    }
-   
+
+   @ApiOperation(value = "Serviço responsável por listar compradores no sistema.")
    @GetMapping
    public List<Comprador> listarTodos() {
   
        return compradorService.listarTodos();
    }
 
+   @ApiOperation(value = "Serviço responsável por consultar um comprador no sistema.")
    @GetMapping("/{id}")
    public Comprador obterPorID(@PathVariable Long id) {
 
        return compradorService.obterPorID(id);
    }
+
+   @ApiOperation(value = "Serviço responsável por atualizar um comprador no sistema.")
    @PutMapping("/{id}")
    public ResponseEntity<Comprador> update(@PathVariable("id") Long id, @RequestBody CompradorRequest request) {
 
@@ -52,6 +58,7 @@ public class CompradorController extends GenericController {
        return ResponseEntity.ok().build();
    }
 
+   @ApiOperation(value = "Serviço responsável por deletar um comprador do sistema.")
    @DeleteMapping("/{id}")
    public ResponseEntity<Void> delete(@PathVariable Long id) {
 

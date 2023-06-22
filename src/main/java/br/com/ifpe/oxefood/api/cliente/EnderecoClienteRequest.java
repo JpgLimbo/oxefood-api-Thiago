@@ -30,5 +30,4 @@ public class EnderecoClienteRequest {
                .complemento(complemento)
                .build();
    }
-
 }
